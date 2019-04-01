@@ -24,7 +24,6 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
-colorscheme molokai
 set foldenable
 set foldmethod=syntax
 set foldlevelstart=99
@@ -106,7 +105,7 @@ set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 call plug#begin()
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'AndrewRadev/splitjoin.vim'
-Plug 'SirVer/ultisnips'
+" Plug 'SirVer/ultisnips'
 Plug 'fatih/molokai'
 Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
@@ -127,7 +126,7 @@ autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
 autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
 autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
 autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
-autocmd BufWritePre *.go :Fmt
+autocmd BufWritePre *.go :GoFmt
 
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
