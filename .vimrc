@@ -24,6 +24,7 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
+colorscheme molokai
 set foldenable
 set foldmethod=syntax
 set foldlevelstart=99
@@ -105,9 +106,10 @@ set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 call plug#begin()
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'AndrewRadev/splitjoin.vim'
-" Plug 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips'
 Plug 'fatih/molokai'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'scrooloose/nerdtree'
 call plug#end()
 
 filetype plugin indent on
@@ -117,16 +119,12 @@ syntax on
 let g:molokai_original = 1
 colorscheme molokai
 
-let g:go_fmt_command = "goimports"
-let g:godef_split=0
-let g:go_textobj_include_function_doc = 0
-let g:go_def_mode = 'godef'
-
 autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
 autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
 autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
 autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
 autocmd BufWritePre *.go :GoFmt
+
 
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
@@ -166,14 +164,28 @@ let g:tagbar_type_go = {
 "set fdm=indent
 "
 let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 0
+let g:go_highlight_function_parameters = 0
 let g:go_highlight_methods = 1
 let g:go_highlight_fields = 1
 let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
-let g:go_highlight_operators = 1
+let g:go_highlight_extra_types = 1 
+let g:go_highlight_generate_tags = 1
+let g:go_highlight_diagnostic_warnings = 1
+let g:go_highlight_diagnostic_errors = 1
+let g:go_highlight_variable_assignments = 0
+let g:go_highlight_variable_declarations = 0
+let g:go_highlight_format_strings = 1
+let g:go_highlight_array_whitespace_error = 0
+let g:go_code_completion_enabled = 1
+let g:go_auto_type_info = 0
+let g:go_mod_fmt_autosave = 1
+let g:go_fmt_autosave = 1
+
 "  键映射
-map <C-t> :NERDTreeToggle<CR>
+map <C-l> :NERDTreeToggle<CR>
 map <C-n> :cnext<CR>
 map <C-m> :cprevious<CR>
 map <c-r> :GoReferrers<CR>
@@ -194,7 +206,20 @@ nnoremap <leader>a :cclose<CR>
 "set statusline+=%{SyntasticStatuslineFlag()}
 "set statusline+=%*
 let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
+let g:go_metalinter_autosave_enabled = ['vet', 'golint']
+let g:go_metalinter_deadline = "5s"
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 let g:go_list_type = "quickfix"
+let g:go_fmt_command = "goimports"
+let g:godef_split=0
+let g:go_textobj_include_function_doc = 0
+let g:go_decls_includes = "func,type"
+let g:go_auto_sameids = 1
+let g:go_info_mode = 'gopls'
+let g:go_def_mode = 'gopls'
+let g:go_referrers_mode = 'gopls'
+let g:go_fmt_command = "gofmt"
+let g:go_gopls_enabled = 1
+
 " ----------------------------syntastic-----------------------
