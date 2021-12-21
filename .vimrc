@@ -181,7 +181,7 @@ let g:go_fmt_autosave = 1
 map <C-l> :NERDTreeToggle<CR>
 map <C-n> :cnext<CR>
 map <C-m> :cprevious<CR>
-"map <c-r> :GoReferrers<CR>
+map <c-?> :GoReferrers<CR>
 map <c-p> :GoImplements<CR>
 map <c-c> :GoCallees<CR>
 
@@ -203,13 +203,13 @@ let g:go_metalinter_autosave_enabled = ["vet", "golint"]
 let g:go_metalinter_deadline = "5s"
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
-"let g:go_list_type = 'quickfix'
+let g:go_list_type = 'quickfix'
 let g:go_imports_command = 'goimports'
 let g:godef_split=0
-"let g:go_textobj_include_function_doc = 0
+let g:go_textobj_include_function_doc = 0
 let g:go_decls_includes = "func,type"
 let g:go_auto_sameids = 1
-"let g:go_info_mode = 'gopls'
+let g:go_info_mode = 'gopls'
 let g:go_def_mode = 'gopls'
 let g:go_referrers_mode = 'gopls'
 let g:go_fmt_command = 'goimports'
@@ -220,4 +220,5 @@ let g:go_gopls_enabled = 1
 "
 "  <Ctrl+x><Ctrl+o> : code completion
 "  
+
 
