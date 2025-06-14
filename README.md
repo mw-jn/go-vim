@@ -4,6 +4,7 @@
 #最好使用 neovim
 
 大致使用步骤如下:
+
 1.创建 nvim 的配置文件目录
   
   mkdir -p ~/.config/nvim
