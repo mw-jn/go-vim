@@ -97,7 +97,9 @@ Plug 'AndrewRadev/splitjoin.vim'                       " 拆分语句合并语�
 " Plug 'honza/vim-snippets'                            " vim-go 已经集成 #快速生成代码
 " Plug 'SirVer/ultisnips'                              " vim-go 已经集成
 Plug 'fatih/molokai'                                   " 配色
-Plug 'ctrlpvim/ctrlp.vim'                            " 文件搜索
+" Plug 'ctrlpvim/ctrlp.vim'                            " 文件搜索
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
 Plug 'scrooloose/nerdtree'                             " 目录文件导航
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'vim-airline/vim-airline'                         " vim 编辑文件状态
@@ -310,3 +312,11 @@ let g:tagbar_type_go = {
 	\ 'ctagsbin'  : 'gotags',
 	\ 'ctagsargs' : '-sort -silent'
 \ }
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" telescope
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
